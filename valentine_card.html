@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentine's Day Card</title>
+    <link rel="stylesheet" href="valentine_styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="header">
+                <h1>Valentine's Day Card</h1>
+                <p class="subtitle">How are you feeling today?</p>
+            </div>
+
+            <div class="moods-section">
+                <div class="mood happy-mood" onclick="showMessage('happy')">
+                    <div class="emoji">❤️</div>
+                    <div class="mood-label">Happy</div>
+                </div>
+
+                <div class="mood sad-mood" onclick="showMessage('sad')">
+                    <div class="emoji">💔</div>
+                    <div class="mood-label">Sad</div>
+                </div>
+
+                <div class="mood love-mood" onclick="showMessage('love')">
+                    <div class="emoji">😍</div>
+                    <div class="mood-label">In Love</div>
+                </div>
+            </div>
+
+            <div class="message-display">
+                <div id="message-box" class="message-box">
+                    <p id="message-text">Click on a mood emoji to see how Valentine's feels!</p>
+                </div>
+            </div>
+
+            <div class="footer">
+                <p>💝 Spread love and kindness this Valentine's Day 💝</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const messages = {
+            happy: [
+                "Love makes your heart smile! Have a wonderful Valentine's Day! 🌹",
+                "Being loved is the greatest Valentine's Day gift ever! 💕",
+                "Your smile is the sweetest love story! Keep spreading joy! 💖",
+                "Happy because love is all around you this Valentine's Day! 🎉"
+            ],
+            sad: [
+                "Love comes in many forms - even self-love is beautiful on Valentine's Day. 💗",
+                "It's okay to feel lonely sometimes. Remember, you are worthy of love! 💜",
+                "Every heart deserves love and care. Be kind to yourself this Valentine's Day! 🌷",
+                "Sadness is just love with no place to go right now. Keep hope alive! 💙"
+            ],
+            love: [
+                "Love is in the air! This Valentine's Day, cherish every moment with your beloved! 🌹💕",
+                "Being in love is the most magical feeling! Make this Valentine's Day special! ✨💖",
+                "Your love is a beautiful gift to the world! Happy Valentine's Day! 🎁❤️",
+                "In love and grateful on this Valentine's Day! Share your love with the world! 💑💝"
+            ]
+        };
+
+        function showMessage(mood) {
+            const messageText = document.getElementById('message-text');
+            const randomMessage = messages[mood][Math.floor(Math.random() * messages[mood].length)];
+            
+            messageText.textContent = randomMessage;
+            
+            // Add animation effect
+            const messageBox = document.getElementById('message-box');
+            messageBox.classList.add('appear');
+            setTimeout(() => {
+                messageBox.classList.remove('appear');
+            }, 600);
+        }
+    </script>
+</body>
+</html>
